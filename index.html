@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Centro Integral Asiri">
+    <title>Centro Integral ASIRI</title>
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <link rel="icon" href="Asirilogo_asiri.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!-- Botones flotantes redes -->
+    <a href="https://www.facebook.com/profile.php?id=61561902281230" class="boton pulse facebook" target="_blank"
+        rel="noopener noreferrer">
+        <i class="fab fa-facebook my-fb"></i></a>
+
+    <a href="https://api.whatsapp.com/send?phone=51980828577&text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20el%20Centro%20Integral%20Asiri
+
+
+"
+        class="float pulse whatsapp" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
+
+   <!-- BOTÓN flotante del chatbot -->
+<button id="openChatbot" 
+        class="btn btn-primary rounded-circle shadow-lg" 
+        style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 1000; font-size: 24px;">
+  💬
+</button>
+
+<!-- CONTENEDOR donde se cargará el chatbot -->
+<div id="chatbotContainer" 
+     style="display:none; position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000;">
+  <iframe src="chatbot.html" style="width:100%; height:100%; border:none;"></iframe>
+</div>
+
+<script>
+  const btn = document.getElementById("openChatbot");
+  const container = document.getElementById("chatbotContainer");
+
+  btn.addEventListener("click", () => {
+    container.style.display = (container.style.display === "none" || container.style.display === "") 
+      ? "block" 
+      : "none";
+  });
+</script>
+
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#hero" class="logo-link">
+                        <img src="Asiri/logo_asiri.png" alt="Logo ASIRI" class="logo-img">
+                        <span class="logo-text">ASIRI</span>
+                    </a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <input id="checkbox" type="checkbox">
+                    <label class="toggle" for="checkbox">
+                        <div id="bar1" class="bars"></div>
+                        <div id="bar2" class="bars"></div>
+                        <div id="bar3" class="bars"></div>
+                    </label>
+                </div>
+                <ul id="nav-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#trainers">Psicologas</a></li>
+                    <li><a href="#contact">Contactanos</a></li>
+                     <li><a href="#cita">Agendar Cita</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="slider-container">
+            <!-- Slider de imágenes de fondo -->
+            <div class="slider">
+                <img src="Asiri/slider1.jpg" alt="Asiri" loading="lazy">
+                <img src="Asiri/slider2.jpg" alt="Asiri" loading="lazy">
+                <img src="Asiri/slider3.jpg" alt="Asiri" loading="lazy">
+            </div>
+
+            <!-- Contenido de texto superpuesto -->
+            <div class="slider-content">
+                <div class="content-text">
+                    <h1 class="asiri-title">Bienvenido a Centro Integral ASIRI</h1>
+                    <p class="hero-subtitle">Calma, Apoyo y Crecimiento.</p>
+                    <a href="#contact" class="hero-cta">¡Contáctanos!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="scroll" data-aos="fade-up">
+        <div class="about-container">
+
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="scroll" data-aos="fade-up">
+        <div class="services-container">
+            <h2 data-aos="fade-right">Nuestros Servicios</h2>
+            <p class="services-subtitle" data-aos="fade-up">En Centro Integral Asiri ofrecemos una variedad de terapias diseñadas para apoyar tu bienestar
+integral. Cada servicio está pensado para ayudarte a recuperar el equilibrio, fortalecer tu salud
+emocional y física, y potenciar tu crecimiento personal.
+</p>
+
+            <div class="services-carousel">
+                <!-- Los servicios se generarán dinámicamente con JS -->
+            </div>
+
+            <div class="service-details-container">
+                <div class="service-detail-content">
+                    <!-- Contenido dinámico -->
+                </div>
+                <div class="service-image-container">
+                    <img id="service-detail-image" src="Asiri/ent.png" alt="Imagen del servicio" loading="lazy">
+                    <div class="service-progress">
+                        <div class="progress-bar"></div>
+                        <div class="progress-text">tomalo con calma</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINERS -->
+    <section id="trainers" class="scroll" data-aos="fade-up">
+        <div class="container">
+            <h2 data-aos="fade-right">Nuestras Psicólogas</h2>
+            <div class="trainers-carousel">
+                <div class="trainer-card" data-trainer="1">
+                    <img src="Asiri/ent1.png" alt="Psicóloga 1" class="trainer-image">
+                    <h3>Valeria Mendoza Torres</h3>
+                </div>
+                <div class="trainer-card" data-trainer="2">
+                    <img src="Asiri/ent2.png" alt="Psicóloga 2" class="trainer-image">
+                    <h3>Paola Castillo Herrera</h3>
+                </div>
+                <div class="trainer-card" data-trainer="3">
+                    <img src="Asiri/ent3.png" alt="Psicóloga 3" class="trainer-image">
+                    <h3>Elena Delgado Morales</h3>
+                </div>
+            </div>
+            <div class="trainer-info" id="trainer-info">
+                <h3 id="trainer-name">Selecciona una psicóloga</h3>
+                <p id="trainer-description">Haz clic en una foto para ver más información.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="scroll" data-aos="fade-up">
+
+
+        <div class="container">
+
+            <h2 data-aos="fade-right">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right" data-aos-delay="100">
+                    <h3>¡Ponte en contacto!</h3>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Ubicación</h4>
+                            <p>San Juan de Lurigancho<br>Lima, Perú</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Teléfono</h4>
+                            <p>+51 992 687 144</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>centroasiri@gmail.com.pe</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Horarios</h4>
+                            <p>
+                                Lun - Vie: 9:00 AM - 8:00 PM<br>
+    Sábados: 9:00 AM - 2:00 PM<br>
+    Domingos y feriados: Cerrado
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container" data-aos="fade-left" data-aos-delay="200">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contact-form" novalidate>
+                        <div class="form-group floating-label">
+                            <input type="text" id="name" name="name" placeholder=" " required />
+                            <label for="name">Nombre <span class="aste">*</span></label>
+                        </div>
+
+                        <div class="form-group floating-label">
+                            <input type="email" id="email" name="email" placeholder=" " required />
+                            <label for="email">Correo Electrónico <span class="aste">*</span></label>
+                        </div>
+
+                        <div class="form-group floating-label">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message">Mensaje <span class="aste">*</span></label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+            <div id="mensaje-enviado" class="modal hidden">
+                <div class="modal-content">
+                    <p id="mensaje-semi">Gracias, tu mensaje fue enviado con éxito.</p>
+                    <button onclick="cerrarModal()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-map" data-aos="fade-up" data-aos-delay="400">
+
+            <iframe
+                src="https://www.google.com/maps/place/Centro+Integral+ASIRI/@-11.9712147,-76.9993605,21z/data=!4m6!3m5!1s0x9105c50026f75f23:0x58d984b2dafccd26!8m2!3d-11.9712337!4d-76.9992606!16s%2Fg%2F11vptmts_2?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de ASIRI en Google Maps"></iframe>
+        </div>
+
+    </section>
+    <section id="cita" class="seccion">
+  <h2>Agendar Cita</h2>
+  <form class="form-cita">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required>
+
+    <label for="hora">Hora:</label>
+    <input type="time" id="hora" name="hora" required>
+
+    <button type="submit">Reservar</button>
+  </form>
+</section>
+
+
+    <footer>
+        <p>© 2025 Centro Integral ASIRI. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts al final del body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        // Inicialización de AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Efecto scroll infinito para productos (alternativa a duplicar HTML)
+        document.addEventListener('DOMContentLoaded', function () {
+            const productList = document.querySelector('.product-list');
+            if (productList) {
+                const products = productList.innerHTML;
+                productList.innerHTML += products;
+            }
+        });
+    </script>
+    <script src="/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Esperar a que AOS se inicialice
+            AOS.init({
+                duration: 800,
+                once: true,
+                initClassName: 'aos-init',
+                animatedClassName: 'aos-animate'
+            });
+
+            // Esperar un breve momento para asegurar que AOS está listo
+            setTimeout(initAboutSection, 100);
+        });
+
+        function initAboutSection() {
+            const aboutSection = document.querySelector('#about');
+            const aboutContent = document.querySelector('#about .about-container');
+
+            if (!aboutContent) {
+                console.error('No se encontró el contenedor about-container');
+                return;
+            }
+
+            // Datos de la empresa
+            const aboutData = {
+                title: "Centro Integral ASIRI",
+                subtitle: "Bienestar que renueva tu vida",
+                description: "En Asiri, creemos que el bienestar verdadero nace de cuidar tu mente, cuerpo y espíritu. Nuestras terapias personalizadas están diseñadas para acompañarte en tu viaje hacia la paz, la fortaleza y la energía renovada. Da el primer paso con nosotros, porque mereces sentirte completo, cuidado y fortalecido cada día.",
+                stats: [
+                    { number: "10+", label: "Años de experiencia" },
+                    { number: "200+", label: "Pacientes satisfechos" },
+                    { number: "3+", label: "Psicólogos expertos" },
+                    { number: "100%", label: "Pasión y compromiso en cada terapia" }
+                ],
+                mission: "En Asiri, acompañamos a las personas en su camino hacia el equilibrio y la fortaleza a través de terapias personalizadas que nutren el cuerpo, liberan la mente y elevan el espíritu. Nuestro compromiso es ofrecer un espacio de cuidado, confianza y renovación donde cada individuo pueda redescubrir su bienestar verdadero.",
+                vision: "Ser un referente de bienestar integral reconocido por brindar experiencias transformadoras que armonicen mente, cuerpo y espíritu, inspirando a cada persona a vivir con paz interior, energía renovada y plenitud en su día a día."
+            };
+
+            // Crear contenido
+            aboutContent.innerHTML = `
+        <div class="about-header" data-aos="fade-right">
+            <h2>${aboutData.title}</h2>
+            <p class="subtitle">${aboutData.subtitle}</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-text" data-aos="fade-right">
+                <p>${aboutData.description}</p>
+                <div class="mission-vision">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="mission">Misión</button>
+                        <button class="tab-btn" data-tab="vision">Visión</button>
+                    </div>
+                    <div class="tab-content active" id="mission" data-aos="fade-up">
+                        <p>${aboutData.mission}</p>
+                    </div>
+                    <div class="tab-content" id="vision" data-aos="fade-up">
+                        <p>${aboutData.vision}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-stats" data-aos="fade-left">
+                ${aboutData.stats.map(stat => `
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="${stat.number.replace('+', '')}">0</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+            // Inicializar AOS para los nuevos elementos
+            AOS.refresh();
+
+            // Animación de contadores
+            animateStats();
+
+            // Configurar pestañas
+            setupTabs();
+        }
+
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            statNumbers.forEach(stat => {
+                const hasPlus = stat.getAttribute('data-count').includes('+');
+                const target = parseInt(stat.getAttribute('data-count').replace('+', '')); // Limpiar el valor
+                let count = 0;
+                const increment = target / speed;
+
+                const updateCount = () => {
+                    count += increment;
+                    stat.textContent = Math.min(Math.ceil(count), target);
+
+                    if (count < target) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        // Agregar el signo + si el valor original lo tenía
+                        stat.textContent = target + (hasPlus ? '+' : '');
+                    }
+                };
+
+                updateCount();
+            });
+        }
+
+        function setupTabs() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const tabId = this.getAttribute('data-tab');
+
+                    // Remover clase active
+                    document.querySelectorAll('.tab-btn, .tab-content').forEach(el => {
+                        el.classList.remove('active');
+                    });
+
+                    // Agregar active al seleccionado
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+
+                    // Refrescar AOS para animaciones
+                    AOS.refresh();
+                });
+            });
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Datos de los servicios
+            const servicesData = [
+                {
+                    id: 1,
+                    title: "Terapias individuales",
+                    shortDesc: "Acompañamiento adaptado a tus necesidades",
+                    longDesc: "Sesiones personalizadas enfocadas en tu bienestar integral. Nuestros especialistas te guían en un proceso diseñado especialmente para ti, ayudándote a alcanzar equilibrio emocional, mental y físico en cada etapa de tu vida.",
+                    image: "Asiri/ent.png",
+                    features: [
+                        {
+                            icon: "fa-user",
+                            title: "Atención personalizada",
+                            desc: "Sesiones 1 a 1 con un especialista"
+                        },
+                        {
+                            icon: "fa-chart-line",
+                            title: "Enfoque integral",
+                            desc: "Trabajo en mente, cuerpo y espíritu"
+                        },
+                        {
+                            icon: "fa-utensils",
+                            title: "Cuidado constante",
+                            desc: "Seguimiento de tu progreso personal"
+                        },
+                        {
+                            icon: "fa-calendar-check",
+                            title: "Flexibilidad horaria",
+                            desc: "Elige los horarios que mejor se adapten a ti"
+                        }
+                    ],
+                    progress: 85,
+                    icon: "fa-dumbbell"
+                },
+                {
+                    id: 2,
+                    title: "Sesiones de relajación",
+                    shortDesc: "Armonía y calma en cada encuentro",
+                    longDesc: "Espacios grupales diseñados para liberar tensiones y reconectar contigo mismo. A través de técnicas como meditación, respiración consciente y relajación guiada, te acompañamos a reducir el estrés y recuperar tu equilibrio interior en un ambiente de paz y energía positiva.",
+                    image: "Images/servicios/grupales.jpg",
+                    features: [
+                        {
+                            icon: "fa-users",
+                            title: "Bienestar en grupo",
+                            desc: "Comparte energía y motivación colectiva"
+                        },
+                        {
+                            icon: "fa-music",
+                            title: "Ambiente tranquilo",
+                            desc: "Espacios diseñados para la calma"
+                        },
+                        {
+                            icon: "fa-heartbeat",
+                            title: "Técnicas restaurativas",
+                            desc: "Meditación, respiración y relajación guiada"
+                        },
+                        {
+                            icon: "fa-clock",
+                            title: "Horarios flexibles",
+                            desc: "Sesiones adaptadas a tu disponibilidad"
+                        }
+                    ],
+                    progress: 75,
+                    icon: "fa-users"
+                },
+                {
+                    id: 3,
+                    title: "Talleres de Desarrollo Personal",
+                    shortDesc: "Crecimiento y aprendizaje en comunidad",
+                    longDesc: "Espacios interactivos diseñados para fortalecer tus habilidades emocionales, sociales y de autoconocimiento. A través de dinámicas grupales y herramientas prácticas, te guiamos a descubrir tu potencial, superar bloqueos y cultivar una vida más plena y consciente.",
+                    image: "Images/servicios/pesas.jpg",
+                    features: [
+                        {
+                            icon: "fa-dumbbell",
+                            title: "Dinámicas grupales",
+                            desc: "Aprendizaje colaborativo y enriquecedor"
+                        },
+                        {
+                            icon: "fa-cogs",
+                            title: "Herramientas prácticas",
+                            desc: "Estrategias aplicables a tu vida diaria"
+                        },
+                        {
+                            icon: "fa-running",
+                            title: "Crecimiento emocional",
+                            desc: "Desarrollo de inteligencia emocional y resiliencia"
+                        },
+                        {
+                            icon: "fa-user-shield",
+                            title: "Facilitadores expertos",
+                            desc: "Guía profesional en cada taller"
+                        }
+                    ],
+                    progress: 90,
+                    icon: "fa-weight-hanging"
+                },
+                {
+                    id: 4,
+                    title: "Terpia de Pareja",
+                    shortDesc: "Fortaleciendo vínculos, construyendo confianza",
+                    longDesc: "Un espacio seguro y guiado por especialistas para mejorar la comunicación, resolver conflictos y fortalecer la relación. A través de sesiones personalizadas, las parejas trabajan en la comprensión mutua, el respeto y la construcción de un vínculo más saludable y duradero.",
+                    image: "Images/servicios/transfromacion.jpg",
+                    features: [
+                        {
+                            icon: "fa-trophy",
+                            title: "Mejora de la comunicación",
+                            desc: "Aprende a expresar y escuchar con respeto"
+                        },
+                        {
+                            icon: "fa-utensils",
+                            title: "Fortalecimiento del vinculo",
+                            desc: "Reconstruye la confianza y la conexión"
+                        },
+                        {
+                            icon: "fa-chart-pie",
+                            title: "Resolución de conflictos",
+                            desc: "Herramientas para afrontar diferencias"
+                        },
+                        {
+                            icon: "fa-headset",
+                            title: "Acompañamiento profesional",
+                            desc: "Psicólogos especializados en terapia de pareja"
+                        }
+                    ],
+                    progress: 95,
+                    icon: "fa-fire"
+                }
+            ];
+
+            // Elementos del DOM
+            const carousel = document.querySelector('.services-carousel');
+            const detailContent = document.querySelector('.service-detail-content');
+            const detailImage = document.getElementById('service-detail-image');
+            const progressBar = document.querySelector('.progress-bar');
+            const progressValue = document.querySelector('.progress-value');
+
+            // Generar tarjetas de servicios
+            function renderServices() {
+                carousel.innerHTML = '';
+
+                servicesData.forEach((service, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'service-card';
+                    card.dataset.id = service.id;
+                    card.innerHTML = `
+                <div class="service-card-content">
+                    <i class="fa ${service.icon} service-icon"></i>
+                    <h3>${service.title}</h3>
+                    <p>${service.shortDesc}</p>
+                </div>
+            `;
+
+                    // Efecto de onda al hacer clic
+                    card.addEventListener('click', function (e) {
+                        // Crear efecto de onda
+                        const ripple = document.createElement('span');
+                        ripple.className = 'ripple-effect';
+                        this.appendChild(ripple);
+
+                        // Posicionar el efecto
+                        const rect = this.getBoundingClientRect();
+                        ripple.style.left = `${e.clientX - rect.left}px`;
+                        ripple.style.top = `${e.clientY - rect.top}px`;
+
+                        // Eliminar después de la animación
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 600);
+
+                        // Mostrar detalles
+                        showServiceDetails(service);
+
+                        // Marcar como activo
+                        document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+
+                    // Activar el primer servicio por defecto
+                    if (index === 0) {
+                        setTimeout(() => {
+                            card.click();
+                        }, 100);
+                    }
+
+                    carousel.appendChild(card);
+                });
+            }
+
+            // Mostrar detalles del servicio
+            function showServiceDetails(service) {
+                // Actualizar contenido
+                detailContent.innerHTML = `
+            <h3>${service.title}</h3>
+            <p>${service.longDesc}</p>
+            <div class="service-features">
+                ${service.features.map(feature => `
+                    <div class="service-feature">
+                        <div class="service-feature-icon">
+                            <i class="fa ${feature.icon}"></i>
+                        </div>
+                        <div class="service-feature-text">
+                            <h4>${feature.title}</h4>
+                            <p>${feature.desc}</p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+                // Actualizar imagen
+                detailImage.src = service.image;
+                detailImage.alt = service.title;
+
+                // Animación de progreso
+                progressBar.style.width = '0';
+                progressValue.textContent = '0%';
+
+                setTimeout(() => {
+                    progressBar.style.width = `${service.progress}%`;
+                    progressValue.textContent = `${service.progress}%`;
+                }, 100);
+
+                // Scroll suave a la tarjeta activa
+                const activeCard = document.querySelector(`.service-card[data-id="${service.id}"]`);
+                if (activeCard) {
+                    activeCard.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+                }
+            }
+
+            // Efecto de scroll horizontal con momentum
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let velocity = 0;
+            let animationId;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                cancelAnimationFrame(animationId);
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                applyMomentum();
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                const prevScrollLeft = carousel.scrollLeft;
+                carousel.scrollLeft = scrollLeft - walk;
+                velocity = carousel.scrollLeft - prevScrollLeft;
+            });
+
+            function applyMomentum() {
+                velocity *= 0.95;
+
+                if (Math.abs(velocity) > 0.5) {
+                    carousel.scrollLeft += velocity;
+                    animationId = requestAnimationFrame(applyMomentum);
+                }
+            }
+
+            // Touch events para móviles
+            carousel.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                cancelAnimationFrame(animationId);
+            });
+
+            carousel.addEventListener('touchend', () => {
+                isDown = false;
+                applyMomentum();
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const x = e.touches[0].pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                const prevScrollLeft = carousel.scrollLeft;
+                carousel.scrollLeft = scrollLeft - walk;
+                velocity = carousel.scrollLeft - prevScrollLeft;
+            });
+
+
+            // Pausar auto-scroll al interactuar
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(autoScrollInterval);
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                startAutoScroll();
+            });
+
+            // Inicializar
+            renderServices();
+            startAutoScroll();
+        });
+    </script>
+
+    <script>
+        const trainers = [
+            {
+                id: 1,
+                name: "Valeria Mendoza Torres",
+                description: "Psicóloga especializada en terapias individuales y manejo de ansiedad.",
+                image: "images/ent.jpg"
+            },
+            {
+                id: 2,
+                name: "Paola Castillo Herrera",
+                description: "Psicoterapeuta enfocada en terapia de pareja y resolución de conflictos.",
+                image: "Images/ent2.jpg"
+            },
+            {
+                id: 3,
+                name: "Elena Delgado Morales",
+                description: "Facilitador en talleres de desarrollo personal y bienestar emocional.",
+                image: "Images/ent3.jpg"
+            }
+        ];
+
+        const trainerCards = document.querySelectorAll('.trainer-card');
+        const trainerInfo = document.getElementById('trainer-info');
+        const trainerName = document.getElementById('trainer-name');
+        const trainerDescription = document.getElementById('trainer-description');
+
+        trainerCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const trainerId = card.getAttribute('data-trainer');
+                const trainer = trainers.find(t => t.id == trainerId);
+                if (trainer) {
+                    trainerName.textContent = trainer.name;
+                    trainerDescription.textContent = trainer.description;
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!-- chatbot.html -->
+<div class="chat-container card shadow-lg" id="chatbot">
+  <div class="chat-header card-header bg-primary text-white d-flex align-items-center">
+    <img src="./Asiri/logo_asiri.png" class="logo me-2" alt="Asiri Logo" style="height: 30px;">
+    <span>AsiriBot</span>
+  </div>
+  <div class="chat-body card-body d-flex flex-column" id="chat-body">
+    <div class="chat-message bot p-2 my-1 rounded-3 bg-light align-self-start">
+      👋 ¡Hola! Soy AsiriBot. ¿Quieres información sobre terapias, horarios o citas?
+    </div>
+  </div>
+  <div class="chat-footer card-footer d-flex">
+    <input type="text" id="userInput" class="form-control me-2" placeholder="Escribe un mensaje...">
+    <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<style>
+  .chat-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: white;
+    font-family: Arial, sans-serif;
+  }
+
+  .chat-header {
+    background: linear-gradient(135deg, #5C9CE5, #4CA1AF);
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+  }
+
+  .chat-header .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* 🔵 circular */
+    object-fit: cover;
+    border: 2px solid white; /* opcional */
+  }
+
+  .chat-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #f5f9ff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-message {
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+  }
+
+  .bot {
+    background-color: #e8f4fa;
+    align-self: flex-start;
+  }
+
+  .user {
+    background-color: #d1f0d1;
+    align-self: flex-end;
+  }
+
+  .chat-footer {
+    display: flex;
+    padding: 8px;
+    background: white;
+    border-top: 1px solid #ddd;
+  }
+
+  .chat-footer input {
+    flex: 1;
+    margin-right: 8px;
+  }
+  .chat-header .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* 🔵 hace que sea circular */
+  object-fit: cover;
+  border: 2px solid white; /* opcional */
+}
+
+</style>
+
+<script>
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value.trim();
+  if (message === "") return;
+
+  addMessage(message, "user");
+  input.value = "";
+
+  // Respuestas simples
+  let response = "No entendí bien, ¿puedes repetirlo?";
+  if (message.toLowerCase().includes("terapia")) {
+    response = "💙 Ofrecemos psicoterapia individual, de pareja y familiar.";
+  } else if (message.toLowerCase().includes("horario")) {
+    response = "⏰ Atendemos de Lunes a Viernes 9am - 8pm y Sábados 9am - 2pm.";
+  } else if (message.toLowerCase().includes("cita")) {
+    response = "📲 Puedes agendar una cita en nuestro WhatsApp: +51 980 828 577";
+  } else if (message.toLowerCase().includes("precio")) {
+    response = "💵 El costo depende del tipo de terapia. Contáctanos por WhatsApp para más detalles.";
+  }
+
+  setTimeout(() => addMessage(response, "bot"), 800);
+}
+
+function addMessage(text, sender) {
+  const chatBody = document.getElementById("chat-body");
+  const msg = document.createElement("div");
+  msg.className = `chat-message ${sender}`;
+  msg.innerText = text;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+</script>
